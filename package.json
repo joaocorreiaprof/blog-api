@@ -1,0 +1,17 @@
+{
+  "name": "blog-api",
+  "version": "1.0.0",
+  "description": "",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "start:client": "npm --prefix client run dev",
+    "start:server": "npm --prefix server run dev",
+    "start": "npm run start:client & npm run start:server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
