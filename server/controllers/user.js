@@ -1,6 +1,9 @@
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
+
+const SECRET_KEY = process.env.SECRET_KEY;
 
 module.exports = {
   postSignUp: async (req, res) => {
@@ -36,7 +39,12 @@ module.exports = {
         return res.status(401).send("Invalid credentials");
       }
 
-      res.status(200).json({ message: "Login successful" });
+      // Generate JWT
+      const token = jwt.sign({ id: user.id, email: user.email }, SECRET_KEY, {
+        expiresIn: "1h",
+      });
+
+      res.status(200).json({ message: "Login successful", token });
     } catch (err) {
       console.error("Error logging in:", err);
       res.status(500).send("An unexpected error occurred");

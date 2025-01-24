@@ -1,15 +1,16 @@
 const express = require("express");
-const router = express.Router();
 const {
   createComment,
   editComment,
   deleteComment,
   displayAllCommentsPerPost,
 } = require("../controllers/comment");
+const auth = require("../middleware/auth");
+const router = express.Router();
 
-router.post("/", createComment);
-router.put("/:id", editComment);
-router.delete("/:id", deleteComment);
+router.post("/", auth, createComment);
+router.put("/:id", auth, editComment);
+router.delete("/:id", auth, deleteComment);
 router.get("/post/:postId", displayAllCommentsPerPost);
 
 module.exports = router;
