@@ -1,20 +1,28 @@
-import { useEffect, useState } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Home from "./components/Home";
+import About from "./components/About";
+import "./styles/App.css";
+import LogIn from "./components/LogIn";
+import SignUp from "./components/SignUp";
 
 const App = () => {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    fetch("/api")
-      .then((response) => response.json())
-      .then((data) => setData(data))
-      .catch((error) => console.error("Error fetching data:", error));
-  }, []);
-
   return (
-    <div>
-      <h1>Blog API</h1>
-      {data ? <p>{data.message}</p> : <p>Loading...</p>}
-    </div>
+    <Router>
+      <div className="general-content">
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/log-in" element={<LogIn />} />
+            <Route path="/sign-up" element={<SignUp />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 };
 

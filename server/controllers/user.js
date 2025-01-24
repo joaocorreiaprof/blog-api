@@ -39,7 +39,6 @@ module.exports = {
         return res.status(401).send("Invalid credentials");
       }
 
-      // Generate JWT
       const token = jwt.sign({ id: user.id, email: user.email }, SECRET_KEY, {
         expiresIn: "1h",
       });
