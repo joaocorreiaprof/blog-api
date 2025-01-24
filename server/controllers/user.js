@@ -7,6 +7,7 @@ const SECRET_KEY = process.env.SECRET_KEY;
 
 module.exports = {
   postSignUp: async (req, res) => {
+    console.log("Request body:", req.body);
     const { username, email, password } = req.body;
 
     try {
@@ -39,11 +40,18 @@ module.exports = {
         return res.status(401).send("Invalid credentials");
       }
 
-      const token = jwt.sign({ id: user.id, email: user.email }, SECRET_KEY, {
-        expiresIn: "1h",
-      });
+      // Include `username` in the token payload
+      const token = jwt.sign(
+        { id: user.id, email: user.email, username: user.username },
+        SECRET_KEY,
+        { expiresIn: "1h" }
+      );
 
-      res.status(200).json({ message: "Login successful", token });
+      res.status(200).json({
+        message: "Login successful",
+        token,
+        user: { id: user.id, email: user.email, username: user.username },
+      });
     } catch (err) {
       console.error("Error logging in:", err);
       res.status(500).send("An unexpected error occurred");

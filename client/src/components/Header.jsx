@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
 import "../styles/Header.css";
+import PropTypes from "prop-types"; // Import PropTypes
 
-const Header = () => {
+const Header = ({ user, setUser }) => {
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setUser(null);
+  };
+
   return (
     <header>
       <div className="header-left">
@@ -21,17 +27,38 @@ const Header = () => {
             <li>
               <Link to="/about">About</Link>
             </li>
-            <li>
-              <Link to="/log-in">Log In</Link>
-            </li>
-            <li>
-              <Link to="/sign-up">Sign Up</Link>
-            </li>
+            {!user ? (
+              <>
+                <li>
+                  <Link to="/log-in">Log In</Link>
+                </li>
+                <li>
+                  <Link to="/sign-up">Sign Up</Link>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <span>Welcome, {user.username || "User"}!</span>
+                </li>
+                <li>
+                  <button onClick={handleLogout}>Log Out</button>
+                </li>
+              </>
+            )}
           </ul>
         </nav>
       </div>
     </header>
   );
+};
+
+Header.propTypes = {
+  user: PropTypes.shape({
+    username: PropTypes.string,
+    email: PropTypes.string,
+  }),
+  setUser: PropTypes.func.isRequired,
 };
 
 export default Header;

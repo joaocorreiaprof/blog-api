@@ -2,6 +2,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 /* Body and general layout */
@@ -11,20 +12,13 @@ html {
 }
 
 .general-content {
-  min-height: 100%;
   display: flex;
   flex-direction: column;
-  padding-top: 70px; /* Offset by the height of the header */
+  min-height: 100vh;
 }
 
 /* Fixed Header */
 header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000; /* Ensures the header is always on top */
-  height: 70px; /* Explicitly set header height */
   justify-content: space-between;
   background-color: #1a202c;
   color: white;
@@ -35,14 +29,14 @@ header {
 
 /* Main Content */
 .general-content > main {
-  flex: 1; /* Ensures main content takes up available space */
-  background-color: #1a202c; /* Example background for main content */
+  flex: 1;
+  background-color: #1a202c;
   color: white;
+  padding: 16px;
 }
 
 /* Footer */
 footer {
-  margin-top: auto;
   background-color: #1a202c;
   color: white;
   text-align: center;

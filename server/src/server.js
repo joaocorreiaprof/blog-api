@@ -17,9 +17,17 @@ app.get("/api", (req, res) => {
 
 //App Uses
 
-app.use("/users", userRoutes);
-app.use("/posts", postRoutes);
-app.use("/comments", commentRoutes);
+app.use(
+  "/api/users",
+  (req, res, next) => {
+    console.log(`Received request at ${req.method} ${req.url}`);
+    next();
+  },
+  userRoutes
+);
+
+app.use("/api/posts", postRoutes);
+app.use("/api/comments", commentRoutes);
 
 // Start server
 app.listen(port, () => {
