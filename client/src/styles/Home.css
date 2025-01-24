@@ -1,0 +1,46 @@
+.home-first-div {
+  display: flex;
+  width: 100%;
+  padding: 20px;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  color: #fff;
+}
+
+.home-title-text {
+  width: 50%;
+  padding-right: 20px;
+}
+
+.home-title-text h1 {
+  font-size: 2.7rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.sub-title {
+  font-size: 1.5rem;
+  color: #a0aec0;
+  margin-bottom: 20px;
+}
+
+.home-about {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #e2e8f0;
+  text-align: justify;
+}
+
+.home-picture {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.home-picture-class {
+  width: 90%;
+  border-radius: 25px;
+  object-fit: cover;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}

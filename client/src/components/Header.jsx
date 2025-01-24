@@ -25,7 +25,7 @@ const Header = ({ user, setUser }) => {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/blog">Blog</Link>
             </li>
             {!user ? (
               <>
@@ -39,7 +39,7 @@ const Header = ({ user, setUser }) => {
             ) : (
               <>
                 <li>
-                  <span>Welcome, {user.username || "User"}!</span>
+                  <span>{user.username || "User"}</span>
                 </li>
                 <li>
                   <button onClick={handleLogout}>Log Out</button>

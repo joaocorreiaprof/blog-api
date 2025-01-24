@@ -16,10 +16,10 @@
   color: white;
 }
 
-/* Styles for the right section */
 .header-right nav ul {
   list-style: none;
   display: flex;
+  align-items: center;
   gap: 20px;
   margin: 0;
   padding: 0;
@@ -39,7 +39,34 @@
   color: #61dafb;
 }
 
-/* Styles for specific links */
+/* Styling for the username span */
+.header-right nav ul li span {
+  font-size: 1rem;
+  color: #61dafb;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+/* Styling for the Log Out button */
+.header-right nav ul li button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.header-right nav ul li button:hover {
+  background-color: #ff1a1a;
+}
+
+.header-right nav ul li button:active {
+  background-color: #cc0000;
+}
+
 .header-right nav ul li a[href="/log-in"] {
   background-color: #333333;
   color: #ffffff;

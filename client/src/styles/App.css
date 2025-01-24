@@ -24,7 +24,7 @@ header {
   color: white;
   display: flex;
   align-items: center;
-  padding: 0 16px;
+  padding: 20px 10%;
 }
 
 /* Main Content */
@@ -32,7 +32,7 @@ header {
   flex: 1;
   background-color: #1a202c;
   color: white;
-  padding: 16px;
+  padding: 20px 10%;
 }
 
 /* Footer */

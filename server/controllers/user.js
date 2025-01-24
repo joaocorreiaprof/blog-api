@@ -40,7 +40,6 @@ module.exports = {
         return res.status(401).send("Invalid credentials");
       }
 
-      // Include `username` in the token payload
       const token = jwt.sign(
         { id: user.id, email: user.email, username: user.username },
         SECRET_KEY,
