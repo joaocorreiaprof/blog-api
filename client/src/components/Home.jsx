@@ -81,7 +81,10 @@ const Home = () => {
           </p>
         </div>
       </div>
-      <div className="home-third-div"></div>
+      <div className="home-third-div">
+        <h1>Top Reads</h1>
+        <div className="top-read-articles"></div>
+      </div>
     </>
   );
 };

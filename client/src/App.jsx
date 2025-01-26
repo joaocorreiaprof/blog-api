@@ -3,9 +3,11 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Blog from "./components/Blog";
-import "./styles/App.css";
 import LogIn from "./components/LogIn";
 import SignUp from "./components/SignUp";
+import Admin from "./components/Admin";
+import "./styles/App.css";
+import ProtectedRoute from "./components/ProtectedRoute";
 import { useState, useEffect } from "react";
 
 const App = () => {
@@ -14,6 +16,7 @@ const App = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
+      console.log(JSON.parse(atob(token.split(".")[1])));
       try {
         const decodedUser = JSON.parse(atob(token.split(".")[1]));
         setUser(decodedUser);
@@ -34,6 +37,14 @@ const App = () => {
             <Route path="/blog" element={<Blog />} />
             <Route path="/log-in" element={<LogIn setUser={setUser} />} />
             <Route path="/sign-up" element={<SignUp />} />
+            <Route
+              path="/admin"
+              element={
+                <ProtectedRoute user={user} allowedRoles={["AUTHOR"]}>
+                  <Admin user={user} setUser={setUser} />
+                </ProtectedRoute>
+              }
+            />
           </Routes>
         </main>
         <Footer />

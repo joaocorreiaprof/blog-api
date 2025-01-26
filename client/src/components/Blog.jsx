@@ -1,10 +1,9 @@
-const About = () => {
+const Blog = () => {
   return (
     <main>
-      <h1>About</h1>
-      <p>This is the About page content.</p>
+      <h1>All articles</h1>
     </main>
   );
 };
 
-export default About;
+export default Blog;

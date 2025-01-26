@@ -1,0 +1,23 @@
+import PropTypes from "prop-types";
+import { Navigate } from "react-router-dom";
+
+const ProtectedRoute = ({ user, allowedRoles, children }) => {
+  console.log("User:", user);
+  console.log("Allowed Roles:", allowedRoles);
+  if (!user || !user.role || !allowedRoles.includes(user.role)) {
+    console.warn("Access denied. Redirecting to login.");
+    return <Navigate to="/log-in" replace />;
+  }
+  console.log("Access granted.");
+  return children;
+};
+
+ProtectedRoute.propTypes = {
+  user: PropTypes.shape({
+    role: PropTypes.string,
+  }),
+  allowedRoles: PropTypes.arrayOf(PropTypes.string).isRequired,
+  children: PropTypes.node.isRequired,
+};
+
+export default ProtectedRoute;

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "../styles/Header.css";
-import PropTypes from "prop-types"; // Import PropTypes
+import PropTypes from "prop-types";
 
 const Header = ({ user, setUser }) => {
   const handleLogout = () => {
@@ -27,6 +27,7 @@ const Header = ({ user, setUser }) => {
             <li>
               <Link to="/blog">Blog</Link>
             </li>
+
             {!user ? (
               <>
                 <li>
@@ -38,6 +39,12 @@ const Header = ({ user, setUser }) => {
               </>
             ) : (
               <>
+                {user?.role === "AUTHOR" && (
+                  <li>
+                    <Link to="/admin">Admin</Link>
+                  </li>
+                )}
+
                 <li>
                   <span>{user.username || "User"}</span>
                 </li>
@@ -57,6 +64,7 @@ Header.propTypes = {
   user: PropTypes.shape({
     username: PropTypes.string,
     email: PropTypes.string,
+    role: PropTypes.string,
   }),
   setUser: PropTypes.func.isRequired,
 };
