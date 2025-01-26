@@ -1,4 +1,12 @@
 import "../styles/Home.css";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+const images = [
+  "/images/valencia-street-three.jpg",
+  "/images/valencia-street.jpg",
+  "/images/valencia-street-two.jpg",
+  "/images/food.jpg",
+];
 
 const Home = () => {
   return (
@@ -33,7 +41,47 @@ const Home = () => {
           />
         </div>
       </div>
-      <div className="home-second-div"></div>
+      <div className="box">
+        <Carousel useKeyboardArrows={true}>
+          {images.map((URL, index) => (
+            <div className="slide" key={index}>
+              <img alt="sample_file" src={URL} />
+            </div>
+          ))}
+        </Carousel>
+      </div>
+      <div className="home-second-div">
+        <div className="home-picture">
+          <img
+            src="../images/this.jpg"
+            alt="A man looking to the ocean"
+            className="home-picture-class"
+          />
+        </div>
+        <div className="home-title-text">
+          <h1>Valencia</h1>
+          <p className="sub-title">Where the Journey Begins</p>
+          <p className="home-about">
+            Every journey has a beginning, and this one starts in the heart of
+            Spain, in a small town just outside Valencia called Burjassot.
+            It&apos;s here, amidst the warm Mediterranean air and vibrant
+            streets, that stories begin to unfold—stories of discovery, culture,
+            and connection. Valencia, with its timeless charm, is more than just
+            a city; it&apos;s an experience. From the intricate patterns of
+            historic domes to the lively energy of its markets and the gentle
+            rhythm of the sea, this place invites you to slow down, breathe, and
+            take it all in. In Burjassot, life feels quieter, more personal—like
+            a whisper of the larger world waiting just beyond. Through this
+            journey, I’m reminded that every place, no matter how far or near,
+            carries a feeling—a moment waiting to be captured. Valencia isn’t
+            just a backdrop; it’s the first chapter of something bigger,
+            something more meaningful. And through the stories and images
+            shared, I find myself traveling too—one step, one thought, one
+            emotion at a time.
+          </p>
+        </div>
+      </div>
+      <div className="home-third-div"></div>
     </>
   );
 };

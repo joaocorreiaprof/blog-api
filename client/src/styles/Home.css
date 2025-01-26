@@ -1,22 +1,26 @@
-.home-first-div {
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playwrite+AU+SA:wght@100..400&family=Playwrite+CO+Guides&family=Playwrite+GB+S&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+.home-first-div,
+.home-second-div {
   display: flex;
   width: 100%;
-  padding: 20px;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box;
   color: #fff;
+  gap: 5%;
+}
+
+.home-second-div {
+  margin-top: 10vh;
 }
 
 .home-title-text {
   width: 50%;
-  padding-right: 20px;
 }
 
 .home-title-text h1 {
   font-size: 2.7rem;
   font-weight: bold;
   margin-bottom: 10px;
+  width: 50%;
 }
 
 .sub-title {
@@ -26,21 +30,42 @@
 }
 
 .home-about {
-  font-size: 1rem;
+  font-size: 1.1rem;
   line-height: 1.6;
   color: #e2e8f0;
   text-align: justify;
+  font-family: "Open Sans", serif;
 }
 
 .home-picture {
   width: 50%;
+}
+
+.home-picture-class {
+  width: 100%;
+  border-radius: 5%;
+  object-fit: cover;
+  box-shadow: none;
+}
+
+.box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 10vh;
+}
+
+.carousel-root {
+  width: 100%;
+}
+
+.carousel .thumbs {
   display: flex;
   justify-content: center;
 }
 
-.home-picture-class {
-  width: 90%;
-  border-radius: 25px;
-  object-fit: cover;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+.carousel .slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
