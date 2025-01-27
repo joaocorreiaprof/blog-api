@@ -27,6 +27,9 @@ const Header = ({ user, setUser }) => {
             <li>
               <Link to="/blog">Blog</Link>
             </li>
+            <li>
+              <Link to="/gallery">Gallery</Link>
+            </li>
 
             {!user ? (
               <>
