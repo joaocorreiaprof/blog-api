@@ -6,6 +6,8 @@ import Blog from "./components/Blog";
 import LogIn from "./components/LogIn";
 import SignUp from "./components/SignUp";
 import Admin from "./components/Admin";
+import CreatePost from "./components/CreatePost";
+import EditPost from "./components/EditPost";
 import "./styles/App.css";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { useState, useEffect } from "react";
@@ -37,6 +39,8 @@ const App = () => {
             <Route path="/blog" element={<Blog />} />
             <Route path="/log-in" element={<LogIn setUser={setUser} />} />
             <Route path="/sign-up" element={<SignUp />} />
+            <Route path="/create-post" element={<CreatePost />} />
+            <Route path="/edit/:id" element={<EditPost />} />
             <Route
               path="/admin"
               element={
