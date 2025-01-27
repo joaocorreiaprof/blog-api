@@ -1,5 +1,7 @@
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import "../styles/Gallery.css";
+
 const images = [
   "/images/gallery/WhatsApp Image 2025-01-27 at 15.23.28 (1).jpeg",
   "/images/gallery/WhatsApp Image 2025-01-27 at 15.23.28.jpeg",
@@ -41,17 +43,16 @@ const images = [
 
 const Gallery = () => {
   return (
-    <>
-      <div className="box">
-        <Carousel useKeyboardArrows={true}>
-          {images.map((URL, index) => (
-            <div className="slide" key={index}>
-              <img alt="sample_file" src={URL} />
-            </div>
-          ))}
-        </Carousel>
-      </div>
-    </>
+    <div className="gallery-container">
+      <Carousel className="custom-carousel" useKeyboardArrows={true}>
+        {images.map((URL, index) => (
+          <div className="carousel-slide" key={index}>
+            <img alt="sample_file" src={URL} className="carousel-image" />
+          </div>
+        ))}
+      </Carousel>
+    </div>
   );
 };
+
 export default Gallery;

@@ -1,0 +1,35 @@
+/* Gallery component specific styles */
+.gallery-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.custom-carousel .slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.carousel-image {
+  max-width: 100%;
+  max-height: 700px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.custom-carousel .control-arrow {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.custom-carousel .control-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.custom-carousel .carousel-status {
+  display: none;
+}
