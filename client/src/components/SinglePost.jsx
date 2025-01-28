@@ -78,8 +78,6 @@ const SinglePost = ({ user }) => {
     const fetchComment = async () => {
       try {
         const token = localStorage.getItem("token");
-        console.log("Token:", token);
-
         if (!token) {
           throw new Error("Authorization token is missing.");
         }
@@ -167,6 +165,9 @@ const SinglePost = ({ user }) => {
           {comments.length > 0 ? (
             comments.map((comment) => (
               <div key={comment.id} className="comment-item">
+                <div className="comment-avatar">
+                  {comment.user.username.charAt(0).toUpperCase(0)}
+                </div>
                 <p className="comment-content">{comment.content}</p>
                 <p className="comment-author">{comment.user.username}</p>
               </div>

@@ -20,7 +20,6 @@ const App = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      console.log(JSON.parse(atob(token.split(".")[1])));
       try {
         const decodedUser = JSON.parse(atob(token.split(".")[1]));
         setUser(decodedUser);
