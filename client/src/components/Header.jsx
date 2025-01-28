@@ -52,7 +52,9 @@ const Header = ({ user, setUser }) => {
                   <span>{user.username || "User"}</span>
                 </li>
                 <li>
-                  <button onClick={handleLogout}>Log Out</button>
+                  <button className="logout-button" onClick={handleLogout}>
+                    Log Out
+                  </button>
                 </li>
               </>
             )}

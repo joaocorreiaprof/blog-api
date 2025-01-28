@@ -87,3 +87,79 @@
   text-align: center;
   margin-bottom: 5vh;
 }
+
+@media (max-width: 480px) {
+  /* General Layout */
+  .home-first-div,
+  .home-second-div {
+    flex-direction: column;
+    gap: 2%;
+  }
+
+  .home-second-div {
+    margin-top: 5vh;
+  }
+
+  .home-title-text {
+    width: 100%;
+    text-align: center;
+  }
+
+  .home-title-text h1 {
+    font-size: 2.2rem; /* Slightly smaller for mobile */
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  .sub-title {
+    font-size: 1.3rem; /* Slightly smaller for mobile */
+    color: #a0aec0;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .home-about {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #e2e8f0;
+    text-align: justify;
+    font-family: "Open Sans", serif;
+    margin-bottom: 20px;
+  }
+
+  .home-picture {
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .home-picture-class {
+    width: 100%;
+    border-radius: 5%;
+    object-fit: cover;
+    box-shadow: none;
+  }
+
+  /* Carousel */
+  .carousel-image-home {
+    max-height: 60vh; /* Reduced to fit better on mobile */
+  }
+
+  .carousel .thumbs,
+  .carousel .control-next.control-arrow,
+  .carousel .control-prev.control-arrow {
+    display: none; /* Hide thumbs for mobile */
+  }
+
+  /* Third Div */
+  .home-third-div {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+  }
+
+  .top-reads {
+    font-size: 2.2rem; /* Slightly smaller for mobile */
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 5vh;
+  }
+}
