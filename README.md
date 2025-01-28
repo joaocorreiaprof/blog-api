@@ -2,6 +2,10 @@
 
 This is a full-stack blog application built with **React**, **Vite**, **Node.js (Express)**, and **PostgreSQL**. It features a single front-end that dynamically displays either a user page or an admin panel based on the user's authentication status and role (admin).
 
+## Live
+
+https://blog-api-production-3f1e.up.railway.app/
+
 ## Features
 
 - **User Authentication**: Users can log in and receive a JWT token for authentication.

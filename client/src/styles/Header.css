@@ -19,8 +19,8 @@
 .header-right nav ul {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 links in the first row */
-  grid-template-rows: auto auto; /* 2 rows */
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
   gap: 10px;
   margin: 0;
   padding: 0;
@@ -110,8 +110,8 @@
 
   .header-right nav ul {
     margin-top: 10px;
-    grid-template-columns: repeat(3, 1fr); /* 3 links in the first row */
-    grid-template-rows: auto auto; /* 2 rows */
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
     gap: 10px;
   }
 
@@ -119,13 +119,13 @@
   .header-right nav ul li:nth-child(1),
   .header-right nav ul li:nth-child(2),
   .header-right nav ul li:nth-child(3) {
-    grid-column: span 1; /* Each link takes one column */
+    grid-column: span 1;
   }
 
   /* Second row with 2 links */
   .header-right nav ul li:nth-child(4),
   .header-right nav ul li:nth-child(5) {
-    grid-column: span 1; /* Each link takes one column */
+    grid-column: span 1;
   }
 
   .header-right nav ul li {
@@ -141,7 +141,6 @@
     background-color: #1a202c;
   }
 
-  /* Ensure Log In and Sign Up are positioned correctly */
   .header-right nav ul li:nth-child(4),
   .header-right nav ul li:nth-child(5) {
     grid-column: span 1;
