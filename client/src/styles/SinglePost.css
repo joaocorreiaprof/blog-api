@@ -1,4 +1,3 @@
-/* Main container for a single post */
 .single-post-page-container {
   max-width: 800px;
   margin: 0 auto;
@@ -34,3 +33,5 @@
 .single-post-page-container button:hover {
   background-color: #0056b3;
 }
+
+/*Comments*/

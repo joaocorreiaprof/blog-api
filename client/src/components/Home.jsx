@@ -1,14 +1,43 @@
 import "../styles/Home.css";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 const images = [
   "/images/valencia-street-three.jpg",
   "/images/valencia-street.jpg",
   "/images/valencia-street-two.jpg",
-  "/images/food.jpg",
+  "/images/gallery/WhatsApp Image 2025-01-27 at 15.23.28.jpeg",
 ];
 
 const Home = () => {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch("/api/posts/display");
+        if (!response.ok) {
+          throw new Error("Failed to fetch posts");
+        }
+        const data = await response.json();
+        setPosts(data);
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPosts();
+  }, []);
+
+  const getPreview = (content, length = 200) => {
+    if (content.length <= length) return content;
+    return content.slice(0, length) + "...";
+  };
+
   return (
     <>
       <div className="home-first-div">
@@ -45,7 +74,11 @@ const Home = () => {
         <Carousel useKeyboardArrows={true}>
           {images.map((URL, index) => (
             <div className="slide" key={index}>
-              <img alt="sample_file" src={URL} />
+              <img
+                alt="sample_file"
+                src={URL}
+                className="carousel-image-home"
+              />
             </div>
           ))}
         </Carousel>
@@ -82,8 +115,24 @@ const Home = () => {
         </div>
       </div>
       <div className="home-third-div">
-        <h1>Top Reads</h1>
-        <div className="top-read-articles"></div>
+        <h1 className="top-reads">Top Reads</h1>
+        <div className="blog-posts-container">
+          {loading ? (
+            <p className="loading">Loading...</p>
+          ) : posts.length > 0 ? (
+            posts.slice(0, 4).map((post) => (
+              <div key={post.id} className="blog-post-card">
+                <h3>{post.title}</h3>
+                <p>{getPreview(post.content)}</p>
+                <Link to={`/post/${post.id}`} className="read-more">
+                  Read more
+                </Link>
+              </div>
+            ))
+          ) : (
+            <p className="no-posts">No posts available</p>
+          )}
+        </div>
       </div>
     </>
   );

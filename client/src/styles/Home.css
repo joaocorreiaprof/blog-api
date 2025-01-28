@@ -59,6 +59,10 @@
   width: 100%;
 }
 
+.carousel-image-home {
+  max-height: 87vh;
+}
+
 .carousel .thumbs {
   display: flex;
   justify-content: center;
@@ -74,4 +78,12 @@
 
 .home-third-div {
   margin-top: 10vh;
+  margin-bottom: 10vh;
+}
+
+.top-reads {
+  font-size: 2.7rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 5vh;
 }

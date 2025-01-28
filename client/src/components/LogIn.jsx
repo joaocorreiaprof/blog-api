@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
+import "../styles/LogIn.css";
 
 const LogIn = ({ setUser }) => {
   const [email, setEmail] = useState("");
@@ -10,7 +11,6 @@ const LogIn = ({ setUser }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // Make API call to log in
     const response = await fetch("api/users/login", {
       method: "POST",
       headers: {
@@ -22,20 +22,21 @@ const LogIn = ({ setUser }) => {
     const data = await response.json();
 
     if (response.ok) {
-      alert("Login successful!");
       localStorage.setItem("token", data.token);
       setUser({ email: data.email });
       navigate("/");
+      window.location.reload();
     } else {
       alert("Login failed: " + data.message);
     }
   };
 
   return (
-    <div>
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="login-container">
+      <h1 className="login-title">Log In</h1>
+      <form className="login-form" onSubmit={handleSubmit}>
         <input
+          className="login-input"
           type="email"
           placeholder="Email"
           value={email}
@@ -43,19 +44,21 @@ const LogIn = ({ setUser }) => {
           required
         />
         <input
+          className="login-input"
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit">Log In</button>
+        <button className="login-button" type="submit">
+          Log In
+        </button>
       </form>
     </div>
   );
 };
 
-// Prop validation for setUser
 LogIn.propTypes = {
   setUser: PropTypes.func.isRequired,
 };

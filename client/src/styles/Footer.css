@@ -1,24 +1,45 @@
-.container {
+.footer-container {
+  color: #fff;
+  padding: 25px 0;
+  text-align: center;
+}
+
+.footer-content {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-.projectName {
-  margin-bottom: 10px;
+.project-title {
+  margin-bottom: 20px;
 }
 
-.socialLinks {
-  margin-bottom: 10px;
+.project-title h3 {
+  font-size: 26px;
+  font-weight: bold;
 }
 
-.link {
-  margin: 0 15px;
+.social-links {
+  margin-bottom: 15px;
+}
+
+.social-link {
+  margin: 0 20px;
   color: #fff;
   text-decoration: none;
   font-size: 18px;
+  transition: color 0.3s ease;
 }
 
-.contact {
+.social-link:hover {
+  color: #f39c12;
+}
+
+.contact-info {
   font-size: 14px;
+  color: #ecf0f1;
+}
+
+.contact-info p {
+  margin: 0;
 }

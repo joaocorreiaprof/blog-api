@@ -3,13 +3,14 @@ const prisma = new PrismaClient();
 
 module.exports = {
   createComment: async (req, res) => {
-    const { content, postId, userId } = req.body;
+    const { content, postId } = req.body;
+    const userId = req.user.id;
 
     try {
       const newComment = await prisma.comment.create({
         data: {
           content,
-          postId,
+          postId: parseInt(postId),
           userId,
         },
       });
